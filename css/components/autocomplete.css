@@ -135,3 +135,35 @@
   color: var(--color-text-muted);
   font-size: var(--text-sm);
 }
+
+/* ---------- Responsive: Mobile (< 640px) ---------- */
+@media (max-width: 639px) {
+  .autocomplete__input {
+    height: 48px;
+    font-size: 16px; /* Prevents iOS auto-zoom */
+    padding: 0 var(--space-10) 0 var(--space-3);
+  }
+
+  .autocomplete__clear-btn {
+    width: 32px;
+    height: 32px;
+  }
+
+  .autocomplete__dropdown {
+    max-height: 220px;
+  }
+
+  .autocomplete__item {
+    min-height: 44px;
+    padding: var(--space-2) var(--space-3);
+  }
+
+  .autocomplete__item-name {
+    font-size: var(--text-sm);
+  }
+
+  .autocomplete__item-meta {
+    font-size: 11px;
+  }
+}
+

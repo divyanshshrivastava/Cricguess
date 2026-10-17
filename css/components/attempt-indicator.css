@@ -151,3 +151,50 @@
   color: var(--color-text-secondary);
   border-radius: var(--radius-sm);
 }
+
+/* ---------- Responsive: Mobile (< 480px) ---------- */
+@media (max-width: 480px) {
+  .attempts-container {
+    gap: var(--space-2);
+    margin-bottom: var(--space-4);
+  }
+
+  .attempts-grid {
+    gap: 6px;
+  }
+
+  .attempt-box {
+    height: 36px;
+    border-radius: var(--radius-sm);
+  }
+
+  .guess-item {
+    padding: var(--space-2) var(--space-3);
+    font-size: var(--text-xs);
+  }
+
+  .guess-item__name {
+    font-size: var(--text-xs);
+    max-width: 170px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .guess-item__tags {
+    gap: 4px;
+  }
+
+  .guess-item__tag {
+    font-size: 10px;
+    padding: 1px 5px;
+  }
+}
+
+/* ---------- Responsive: Desktop (640px+) ---------- */
+@media (min-width: 640px) {
+  .attempt-box {
+    height: 44px;
+  }
+}
+

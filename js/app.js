@@ -176,6 +176,78 @@ function showGlobalStatsModal() {
 }
 
 /**
+ * Initialize responsive mobile hamburger menu and backdrop.
+ */
+function initMobileMenu() {
+  const headerActions = document.querySelector('.header__actions');
+  const nav = document.querySelector('.header__nav');
+  if (!nav) return;
+
+  // Ensure menu button exists in header actions
+  let menuBtn = document.querySelector('[data-action="menu-toggle"]');
+  if (!menuBtn && headerActions) {
+    menuBtn = document.createElement('button');
+    menuBtn.type = 'button';
+    menuBtn.className = 'header__icon-btn header__menu-btn';
+    menuBtn.setAttribute('data-action', 'menu-toggle');
+    menuBtn.setAttribute('title', 'Open navigation menu');
+    menuBtn.setAttribute('aria-label', 'Open navigation menu');
+    menuBtn.setAttribute('aria-expanded', 'false');
+    menuBtn.innerHTML = `
+      <svg class="menu-icon-bars" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    `;
+    headerActions.appendChild(menuBtn);
+  }
+
+  if (!menuBtn) return;
+
+  // Create backdrop if missing
+  let backdrop = document.querySelector('.header__nav-backdrop');
+  if (!backdrop) {
+    backdrop = document.createElement('div');
+    backdrop.className = 'header__nav-backdrop';
+    document.body.appendChild(backdrop);
+  }
+
+  const toggle = (force) => {
+    const isOpen = typeof force === 'boolean' ? force : !nav.classList.contains('is-open');
+    nav.classList.toggle('is-open', isOpen);
+    backdrop.classList.toggle('is-open', isOpen);
+    menuBtn.setAttribute('aria-expanded', String(isOpen));
+    menuBtn.setAttribute('aria-label', isOpen ? 'Close navigation menu' : 'Open navigation menu');
+    menuBtn.innerHTML = isOpen
+      ? `<svg class="menu-icon-close" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>`
+      : `<svg class="menu-icon-bars" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>`;
+  };
+
+  menuBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    toggle();
+  });
+
+  backdrop.addEventListener('click', () => toggle(false));
+
+  // Close when tapping any link inside mobile menu
+  nav.querySelectorAll('.header__nav-link').forEach((link) => {
+    link.addEventListener('click', () => toggle(false));
+  });
+
+  // Close when pressing Escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && nav.classList.contains('is-open')) {
+      toggle(false);
+    }
+  });
+
+  // Close when resizing window to desktop width
+  window.addEventListener('resize', () => {
+    if (window.innerWidth >= 768 && nav.classList.contains('is-open')) {
+      toggle(false);
+    }
+  });
+}
+
+/**
  * Application entry point.
  */
 async function initApp() {
@@ -205,7 +277,10 @@ async function initApp() {
     });
   });
 
-  // 5. Check if page has a mode mount container
+  // 5. Initialize responsive mobile navigation menu
+  initMobileMenu();
+
+  // 6. Check if page has a mode mount container
   const modeMount = document.querySelector('[data-mode-mount]');
   if (modeMount) {
     const specifiedMode = modeMount.getAttribute('data-mode') || getCurrentRoute();

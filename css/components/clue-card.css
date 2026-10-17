@@ -92,3 +92,33 @@
   border-left-color: var(--color-stump);
   background: linear-gradient(to right, rgba(212, 160, 84, 0.06), transparent);
 }
+
+/* ---------- Responsive: Mobile (< 640px) ---------- */
+@media (max-width: 639px) {
+  .clues-list {
+    gap: var(--space-2);
+    margin-bottom: var(--space-4);
+  }
+
+  .clue-card {
+    padding: var(--space-3);
+  }
+
+  .clue-card__content {
+    font-size: var(--text-sm);
+    line-height: 1.5;
+  }
+
+  .clue-card--locked {
+    padding: var(--space-2) var(--space-3);
+  }
+
+  .clue-card--locked .clue-card__header {
+    margin-bottom: 0;
+  }
+
+  .clue-card--locked .clue-card__content {
+    display: none;
+  }
+}
+

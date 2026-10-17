@@ -95,3 +95,23 @@
 [data-theme="dark"] .stats-chart__bar--highlight {
   background: var(--color-pitch-light);
 }
+
+/* ---------- Responsive: Mobile (< 480px) ---------- */
+@media (max-width: 480px) {
+  .stats-grid {
+    gap: var(--space-2);
+  }
+
+  .stat-box {
+    padding: var(--space-2);
+  }
+
+  .stat-box__value {
+    font-size: var(--text-xl);
+  }
+
+  .stat-box__label {
+    font-size: 10px;
+  }
+}
+
