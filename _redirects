@@ -1,0 +1,8 @@
+# Netlify clean URL rewrites
+/daily          /daily.html         200
+/unlimited      /unlimited.html     200
+/how-to-play    /how-to-play.html   200
+/about          /about.html         200
+/contact        /contact.html       200
+/privacy-policy /privacy-policy.html 200
+/terms          /terms.html         200
