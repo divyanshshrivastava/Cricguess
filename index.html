@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CricGuess — Cricket Guessing Game | Daily & Unlimited Cricket Quiz</title>
+  <meta name="description" content="Test your cricket knowledge! Identify the mystery cricketer in 6 clues. Play the Daily Challenge synced worldwide or unlimited practice mode. Free & no login required!">
+  <link rel="canonical" href="https://cricguess.com/">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="CricGuess — Cricket Guessing Game">
+  <meta property="og:description" content="Can you guess today's mystery cricketer? Progressive clues, daily challenges, and unlimited practice modes.">
+  <meta property="og:url" content="https://cricguess.com/">
+  <meta property="og:image" content="./assets/og-image.svg">
+  <meta property="og:type" content="website">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="CricGuess — Cricket Guessing Game">
+  <meta name="twitter:description" content="Identify the mystery cricketer in 6 clues. Play today's Daily Challenge!">
+  <meta name="twitter:image" content="./assets/og-image.svg">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="./assets/favicon.svg">
+  <link rel="manifest" href="./manifest.json">
+  <meta name="theme-color" content="#1a5632">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="./css/base.css">
+  <link rel="stylesheet" href="./css/layout.css">
+  <link rel="stylesheet" href="./css/components/button.css">
+  <link rel="stylesheet" href="./css/components/modal.css">
+  <link rel="stylesheet" href="./css/components/toast.css">
+  <link rel="stylesheet" href="./css/components/stats-chart.css">
+  <link rel="stylesheet" href="./css/components/countdown.css">
+  <link rel="stylesheet" href="./css/components/clue-card.css">
+  <link rel="stylesheet" href="./css/components/attempt-indicator.css">
+  <link rel="stylesheet" href="./css/components/progress-bar.css">
+  <link rel="stylesheet" href="./css/components/autocomplete.css">
+  <link rel="stylesheet" href="./css/components/cookie-consent.css">
+  <link rel="stylesheet" href="./css/components/ad-slot.css">
+  <link rel="stylesheet" href="./css/modes/daily.css">
+  <link rel="stylesheet" href="./css/modes/unlimited.css">
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "CricGuess",
+    "url": "https://cricguess.com",
+    "description": "A daily cricket guessing game where players identify mystery cricketers from progressive clues.",
+    "applicationCategory": "GameApplication",
+    "genre": "Trivia / Cricket Quiz",
+    "operatingSystem": "All"
+  }
+  </script>
+</head>
+<body class="page">
+
+  <!-- Sticky Header -->
+  <header class="page__header" role="banner">
+    <div class="header">
+      <div class="header__brand">
+        <a href="./index.html" class="header__logo" aria-label="CricGuess Home">
+          Cric<span>Guess</span>
+        </a>
+      </div>
+
+      <nav class="header__nav" role="navigation" aria-label="Main Navigation">
+        <a href="./daily.html" class="header__nav-link" data-nav-route="daily">Daily</a>
+        <a href="./unlimited.html" class="header__nav-link" data-nav-route="unlimited">Unlimited</a>
+        <a href="./how-to-play.html" class="header__nav-link">Rules</a>
+        <a href="./blog/index.html" class="header__nav-link">Blog</a>
+      </nav>
+
+      <div class="header__actions">
+        <button type="button" class="header__icon-btn" data-action="stats" title="View Statistics" aria-label="View Statistics">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+        </button>
+        <button type="button" class="header__icon-btn" data-action="how-to-play" title="How to play" aria-label="How to play">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+        </button>
+        <button type="button" class="header__icon-btn" data-theme-toggle title="Toggle theme" aria-label="Toggle theme">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="page__main" id="main-content">
+    <div class="container">
+
+      <!-- Top Ad Slot -->
+      <aside class="ad-slot ad-slot--banner" aria-label="Advertisement">
+        <span class="ad-slot__label">Advertisement</span>
+        <div class="ad-slot__wrapper" id="home-ad-top">
+          <div class="ad-slot__placeholder">Ad Placement (Responsive Banner)</div>
+        </div>
+      </aside>
+
+      <!-- Hero Section -->
+      <section style="text-align: center; padding: var(--space-8) 0 var(--space-4);" aria-labelledby="hero-title">
+        <h1 id="hero-title" style="letter-spacing: -0.02em; margin-bottom: var(--space-2);">
+          Guess the <span style="color: var(--color-pitch); background: linear-gradient(135deg, var(--color-pitch), var(--color-pitch-light)); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Mystery Cricketer</span>
+        </h1>
+        <p style="max-width: 540px; margin: 0 auto var(--space-6); font-size: var(--text-base); color: var(--color-text-secondary);">
+          Identify legendary international cricketers from 6 progressive clues. From career debut stats to iconic milestones and records.
+        </p>
+
+        <!-- Mode Launcher Cards -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: var(--space-4); max-width: 640px; margin: 0 auto var(--space-8);">
+          <a href="./daily.html" class="card card--interactive" style="display: flex; flex-direction: column; align-items: center; text-align: center; border-top: 3px solid var(--color-pitch); padding: var(--space-6);">
+            <h3 style="font-size: var(--text-lg); margin-bottom: var(--space-1);">Daily Challenge</h3>
+            <p style="font-size: var(--text-sm); color: var(--color-text-secondary); margin-bottom: var(--space-4);">
+              One mystery player every day. Same puzzle worldwide.
+            </p>
+            <span class="btn btn--primary btn--sm" style="width: 100%;">Play Daily</span>
+          </a>
+
+          <a href="./unlimited.html" class="card card--interactive" style="display: flex; flex-direction: column; align-items: center; text-align: center; border-top: 3px solid var(--color-leather); padding: var(--space-6);">
+            <h3 style="font-size: var(--text-lg); margin-bottom: var(--space-1);">Unlimited Practice</h3>
+            <p style="font-size: var(--text-sm); color: var(--color-text-secondary); margin-bottom: var(--space-4);">
+              Endless rounds with custom nation, era, and role filters.
+            </p>
+            <span class="btn btn--secondary btn--sm" style="width: 100%;">Play Unlimited</span>
+          </a>
+        </div>
+      </section>
+
+      <!-- Embedded Play Area for Instant Action -->
+      <section style="margin-bottom: var(--space-12);" aria-label="Daily Puzzle Player">
+        <div style="text-align: center; margin-bottom: var(--space-4);">
+          <span style="display: inline-block; padding: 3px 12px; background: var(--color-bg-alt); border-radius: var(--radius-full); font-size: var(--text-xs); font-weight: 600; text-transform: uppercase; color: var(--color-pitch); letter-spacing: 0.05em;">
+            Featured Daily Challenge
+          </span>
+        </div>
+        <div data-mode-mount data-mode="daily"></div>
+      </section>
+
+      <!-- How It Works Visual Guide -->
+      <section class="card" style="margin-bottom: var(--space-8); padding: var(--space-8);" aria-labelledby="how-it-works-title">
+        <h2 id="how-it-works-title" style="text-align: center; margin-bottom: var(--space-6); font-size: var(--text-xl);">How CricGuess Works</h2>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: var(--space-6);">
+          <div style="text-align: center;">
+            <div style="display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: var(--radius-full); background: var(--color-bg-alt); margin-bottom: var(--space-3); font-size: var(--text-sm); font-weight: 700; color: var(--color-pitch);">01</div>
+            <h3 style="font-size: var(--text-base); margin-bottom: var(--space-1);">Read Clue 1</h3>
+            <p style="font-size: var(--text-xs);">Start with the hardest clue: debut year, total international matches, or early career facts.</p>
+          </div>
+
+          <div style="text-align: center;">
+            <div style="display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: var(--radius-full); background: var(--color-bg-alt); margin-bottom: var(--space-3); font-size: var(--text-sm); font-weight: 700; color: var(--color-pitch);">02</div>
+            <h3 style="font-size: var(--text-base); margin-bottom: var(--space-1);">Submit Your Guess</h3>
+            <p style="font-size: var(--text-xs);">Type to search any cricketer. An incorrect guess marks the attempt and unlocks the next clue.</p>
+          </div>
+
+          <div style="text-align: center;">
+            <div style="display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: var(--radius-full); background: var(--color-bg-alt); margin-bottom: var(--space-3); font-size: var(--text-sm); font-weight: 700; color: var(--color-pitch);">03</div>
+            <h3 style="font-size: var(--text-base); margin-bottom: var(--space-1);">Solve in 6 Guesses</h3>
+            <p style="font-size: var(--text-xs);">Identify the cricketer, build your win streak, and share your score grid with friends.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Bottom Ad Slot -->
+      <aside class="ad-slot ad-slot--banner" aria-label="Advertisement">
+        <span class="ad-slot__label">Advertisement</span>
+        <div class="ad-slot__wrapper" id="home-ad-bottom">
+          <div class="ad-slot__placeholder">Ad Placement (Responsive Banner)</div>
+        </div>
+      </aside>
+
+    </div>
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="page__footer" role="contentinfo">
+    <div class="container footer">
+      <nav class="footer__links" aria-label="Footer links">
+        <a href="./daily.html" class="footer__link">Daily Challenge</a>
+        <a href="./unlimited.html" class="footer__link">Unlimited Practice</a>
+        <a href="./how-to-play.html" class="footer__link">How to Play</a>
+        <a href="./blog/index.html" class="footer__link">Cricket Blog</a>
+        <a href="./about.html" class="footer__link">About Us</a>
+        <a href="./contact.html" class="footer__link">Contact</a>
+        <a href="./privacy-policy.html" class="footer__link">Privacy Policy</a>
+        <a href="./terms.html" class="footer__link">Terms of Service</a>
+      </nav>
+
+      <p class="footer__disclaimer">
+        © 2026 CricGuess. CricGuess is an independent cricket trivia quiz game made for cricket fans worldwide. CricGuess is not affiliated with the International Cricket Council (ICC), BCCI, or any national cricket board.
+      </p>
+    </div>
+  </footer>
+
+  <!-- App Bootstrap -->
+  <script type="module" src="./js/app.js"></script>
+</body>
+</html>

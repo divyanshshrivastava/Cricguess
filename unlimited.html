@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Unlimited Practice Mode — CricGuess | Endless Cricket Quiz</title>
+  <meta name="description" content="Play endless cricket guessing puzzles! Filter by country, batting role, era, or difficulty. Practice anytime with no daily limits on CricGuess.">
+  <link rel="canonical" href="https://cricguess.com/unlimited.html">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Unlimited Practice Mode — CricGuess">
+  <meta property="og:description" content="Endless cricket guessing with filterable nation, era, and role options.">
+  <meta property="og:url" content="https://cricguess.com/unlimited.html">
+  <meta property="og:image" content="./assets/og-image.svg">
+  <meta property="og:type" content="website">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Unlimited Practice Mode — CricGuess">
+  <meta name="twitter:description" content="Endless cricket trivia puzzles with progressive clues.">
+  <meta name="twitter:image" content="./assets/og-image.svg">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="./assets/favicon.svg">
+  <link rel="manifest" href="./manifest.json">
+  <meta name="theme-color" content="#1a5632">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="./css/base.css">
+  <link rel="stylesheet" href="./css/layout.css">
+  <link rel="stylesheet" href="./css/components/button.css">
+  <link rel="stylesheet" href="./css/components/modal.css">
+  <link rel="stylesheet" href="./css/components/toast.css">
+  <link rel="stylesheet" href="./css/components/stats-chart.css">
+  <link rel="stylesheet" href="./css/components/clue-card.css">
+  <link rel="stylesheet" href="./css/components/attempt-indicator.css">
+  <link rel="stylesheet" href="./css/components/progress-bar.css">
+  <link rel="stylesheet" href="./css/components/autocomplete.css">
+  <link rel="stylesheet" href="./css/components/cookie-consent.css">
+  <link rel="stylesheet" href="./css/components/ad-slot.css">
+  <link rel="stylesheet" href="./css/modes/unlimited.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Game",
+    "name": "CricGuess Unlimited Practice Mode",
+    "url": "https://cricguess.com/unlimited.html",
+    "description": "Endless cricket quiz practice mode with country, role, and era filters.",
+    "gameItem": "Cricket Trivia Practice"
+  }
+  </script>
+</head>
+<body class="page">
+
+  <!-- Header -->
+  <header class="page__header" role="banner">
+    <div class="header">
+      <div class="header__brand">
+        <a href="./index.html" class="header__logo" aria-label="CricGuess Home">
+          Cric<span>Guess</span>
+        </a>
+      </div>
+
+      <nav class="header__nav" role="navigation" aria-label="Main Navigation">
+        <a href="./daily.html" class="header__nav-link" data-nav-route="daily">Daily</a>
+        <a href="./unlimited.html" class="header__nav-link header__nav-link--active" data-nav-route="unlimited">Unlimited</a>
+        <a href="./how-to-play.html" class="header__nav-link">Rules</a>
+        <a href="./blog/index.html" class="header__nav-link">Blog</a>
+      </nav>
+
+      <div class="header__actions">
+        <button type="button" class="header__icon-btn" data-action="stats" title="View Statistics" aria-label="View Statistics">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+        </button>
+        <button type="button" class="header__icon-btn" data-action="how-to-play" title="How to play" aria-label="How to play">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+        </button>
+        <button type="button" class="header__icon-btn" data-theme-toggle title="Toggle theme" aria-label="Toggle theme">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="page__main" id="main-content">
+    <div class="container">
+
+      <!-- Top Ad Slot -->
+      <aside class="ad-slot ad-slot--banner" aria-label="Advertisement">
+        <span class="ad-slot__label">Advertisement</span>
+        <div class="ad-slot__wrapper" id="cricguess-unlimited-top">
+          <div class="ad-slot__placeholder">Ad Placement (Responsive Banner)</div>
+        </div>
+      </aside>
+
+      <!-- Game Mount Container -->
+      <section style="padding: var(--space-4) 0;" aria-label="Unlimited Practice Board">
+        <div data-mode-mount data-mode="unlimited"></div>
+      </section>
+
+      <!-- Bottom Ad Slot -->
+      <aside class="ad-slot ad-slot--banner" aria-label="Advertisement">
+        <span class="ad-slot__label">Advertisement</span>
+        <div class="ad-slot__wrapper" id="cricguess-unlimited-bottom">
+          <div class="ad-slot__placeholder">Ad Placement (Responsive Banner)</div>
+        </div>
+      </aside>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="page__footer" role="contentinfo">
+    <div class="container footer">
+      <nav class="footer__links" aria-label="Footer links">
+        <a href="./daily.html" class="footer__link">Daily Challenge</a>
+        <a href="./unlimited.html" class="footer__link">Unlimited Practice</a>
+        <a href="./how-to-play.html" class="footer__link">How to Play</a>
+        <a href="./blog/index.html" class="footer__link">Cricket Blog</a>
+        <a href="./about.html" class="footer__link">About Us</a>
+        <a href="./contact.html" class="footer__link">Contact</a>
+        <a href="./privacy-policy.html" class="footer__link">Privacy Policy</a>
+        <a href="./terms.html" class="footer__link">Terms of Service</a>
+      </nav>
+
+      <p class="footer__disclaimer">
+        © 2026 CricGuess. CricGuess is an independent cricket trivia quiz game made for cricket fans worldwide.
+      </p>
+    </div>
+  </footer>
+
+  <script type="module" src="./js/app.js"></script>
+</body>
+</html>

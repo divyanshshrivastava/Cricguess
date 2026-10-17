@@ -1,0 +1,17 @@
+{
+  "name": "CricGuess — Cricket Guessing Game",
+  "short_name": "CricGuess",
+  "description": "Guess the mystery cricketer in 6 clues! Daily challenge and unlimited practice.",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#1a5632",
+  "theme_color": "#1a5632",
+  "icons": [
+    {
+      "src": "/assets/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
