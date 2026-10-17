@@ -1,5 +1,6 @@
 /* ============================================================
-   cookie-consent.css — GDPR & AdSense compliance consent banner
+   cookie-consent.css — GDPR & AdSense compliance consent banner.
+   Docked to the bottom-left to avoid Netlify badge in bottom-right corner.
    ============================================================ */
 
 .cookie-banner {
@@ -11,11 +12,13 @@
   background: var(--color-surface);
   border-top: 1px solid var(--color-surface-border);
   box-shadow: var(--shadow-xl);
-  padding: var(--space-4) var(--space-6);
+  padding: var(--space-4);
+  /* Generous right padding on mobile so Netlify bottom-right badge never obstructs controls */
+  padding-right: 90px;
   display: flex;
   flex-direction: column;
   gap: var(--space-3);
-  transform: translateY(100%);
+  transform: translateY(120%);
   transition: transform var(--transition-slow);
 }
 
@@ -39,6 +42,7 @@
 .cookie-banner__text {
   font-size: var(--text-sm);
   color: var(--color-text-secondary);
+  line-height: var(--leading-normal);
 }
 
 .cookie-banner__text a {
@@ -50,17 +54,26 @@
   display: flex;
   align-items: center;
   gap: var(--space-2);
-  justify-content: flex-end;
+  /* Align buttons to the LEFT side so they are far from the bottom-right corner */
+  justify-content: flex-start;
+  flex-wrap: wrap;
 }
 
+/* Desktop & Tablet: floating card docked on the bottom-left */
 @media (min-width: 640px) {
   .cookie-banner {
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
+    bottom: var(--space-6);
+    left: var(--space-6);
+    right: auto;
+    width: calc(100% - var(--space-12));
+    max-width: 440px;
+    padding: var(--space-5);
+    border: 1px solid var(--color-surface-border);
+    border-radius: var(--radius-lg);
   }
 
   .cookie-banner__actions {
-    flex-shrink: 0;
+    margin-top: var(--space-1);
   }
 }
+

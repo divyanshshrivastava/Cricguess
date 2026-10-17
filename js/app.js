@@ -16,7 +16,7 @@ import { fireConfetti } from './ui/confetti.js';
 import { openModal, closeModal } from './core/modal.js';
 import { createModal } from './ui/modal-component.js';
 import { renderStatChartHTML } from './ui/stat-chart.js';
-import { initCookieConsent } from './ui/cookie-consent.js';
+import { initCookieConsent, showConsentBanner } from './ui/cookie-consent.js';
 import { mountAdSlots } from './ui/ad-slot.js';
 import { getMode, getAvailableModes } from './modes/registry.js';
 import * as config from './config.js';
@@ -274,6 +274,13 @@ async function initApp() {
     btn.addEventListener('click', (e) => {
       e.preventDefault();
       showGlobalStatsModal();
+    });
+  });
+
+  document.querySelectorAll('[data-action="reset-cookies"]').forEach((btn) => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      showConsentBanner({ onAccept: () => mountAdSlots() });
     });
   });
 
