@@ -1,0 +1,94 @@
+/* ============================================================
+   clue-card.css — Sleek clue cards container and item states
+   ============================================================ */
+
+.clues-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  margin-bottom: var(--space-6);
+}
+
+.clue-card {
+  position: relative;
+  background: var(--color-surface);
+  border: 1px solid var(--color-surface-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-4);
+  box-shadow: var(--shadow-xs);
+  transition: all var(--transition-base);
+}
+
+.clue-card--revealed {
+  border-left: 3px solid var(--color-pitch);
+  animation: fadeInUp var(--transition-slow) ease forwards;
+}
+
+[data-theme="dark"] .clue-card--revealed {
+  border-left-color: var(--color-pitch-light);
+}
+
+.clue-card--locked {
+  background: var(--color-bg-alt);
+  border: 1px dashed var(--color-surface-border);
+  opacity: 0.7;
+}
+
+.clue-card__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-2);
+}
+
+.clue-card__badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 8px;
+  background: rgba(26, 86, 50, 0.08);
+  color: var(--color-pitch);
+  border-radius: var(--radius-sm);
+  font-size: var(--text-xs);
+  font-weight: var(--weight-semibold);
+  letter-spacing: 0.03em;
+}
+
+[data-theme="dark"] .clue-card__badge {
+  background: rgba(45, 138, 86, 0.15);
+  color: var(--color-pitch-light);
+}
+
+.clue-card__badge--locked {
+  background: var(--color-surface-border);
+  color: var(--color-text-muted);
+}
+
+[data-theme="dark"] .clue-card__badge--locked {
+  background: var(--color-surface-border);
+  color: var(--color-text-muted);
+}
+
+.clue-card__difficulty {
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+  font-weight: var(--weight-medium);
+}
+
+.clue-card__content {
+  font-size: var(--text-base);
+  color: var(--color-text);
+  line-height: var(--leading-normal);
+}
+
+.clue-card--locked .clue-card__content {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+}
+
+.clue-card--final.clue-card--revealed {
+  border-left-color: var(--color-stump);
+  background: linear-gradient(to right, rgba(212, 160, 84, 0.06), transparent);
+}

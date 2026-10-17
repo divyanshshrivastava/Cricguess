@@ -1,0 +1,41 @@
+/* ============================================================
+   progress-bar.css — Attempt tracker progress bar
+   ============================================================ */
+
+.progress-container {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-bottom: var(--space-4);
+}
+
+.progress-bar {
+  flex: 1;
+  height: 8px;
+  background: var(--color-bg-alt);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+  position: relative;
+}
+
+.progress-bar__fill {
+  height: 100%;
+  background: var(--gradient-primary);
+  border-radius: var(--radius-full);
+  transition: width var(--transition-base);
+}
+
+.progress-bar__fill--warning {
+  background: var(--color-warning);
+}
+
+.progress-bar__fill--danger {
+  background: var(--color-leather);
+}
+
+.progress-label {
+  font-size: var(--text-xs);
+  font-weight: var(--weight-bold);
+  color: var(--color-text-muted);
+  white-space: nowrap;
+}

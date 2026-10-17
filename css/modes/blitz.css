@@ -1,0 +1,16 @@
+/* ============================================================
+   blitz.css — Styles scoped for Blitz mode (.mode-blitz)
+   ============================================================ */
+
+.mode-blitz .blitz-timer {
+  font-family: var(--font-display);
+  font-size: var(--text-3xl);
+  font-weight: var(--weight-extrabold);
+  color: var(--color-leather);
+  text-align: center;
+  margin-bottom: var(--space-4);
+}
+
+.mode-blitz .blitz-timer--warning {
+  animation: pulse-glow 1s infinite;
+}

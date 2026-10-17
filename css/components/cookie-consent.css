@@ -1,0 +1,66 @@
+/* ============================================================
+   cookie-consent.css — GDPR & AdSense compliance consent banner
+   ============================================================ */
+
+.cookie-banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: var(--z-sticky);
+  background: var(--color-surface);
+  border-top: 1px solid var(--color-surface-border);
+  box-shadow: var(--shadow-xl);
+  padding: var(--space-4) var(--space-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  transform: translateY(100%);
+  transition: transform var(--transition-slow);
+}
+
+.cookie-banner.is-visible {
+  transform: translateY(0);
+}
+
+.cookie-banner__content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.cookie-banner__title {
+  font-family: var(--font-display);
+  font-size: var(--text-base);
+  font-weight: var(--weight-bold);
+  color: var(--color-text);
+}
+
+.cookie-banner__text {
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+}
+
+.cookie-banner__text a {
+  color: var(--color-pitch);
+  text-decoration: underline;
+}
+
+.cookie-banner__actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  justify-content: flex-end;
+}
+
+@media (min-width: 640px) {
+  .cookie-banner {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .cookie-banner__actions {
+    flex-shrink: 0;
+  }
+}

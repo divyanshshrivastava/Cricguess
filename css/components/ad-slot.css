@@ -1,0 +1,60 @@
+/* ============================================================
+   ad-slot.css — AdSense-compliant container styles with CLS protection
+   ============================================================ */
+
+.ad-slot {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: var(--space-6) auto;
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.ad-slot__label {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-1);
+  font-weight: var(--weight-semibold);
+}
+
+.ad-slot__wrapper {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-bg-alt);
+  border: 1px dashed var(--color-surface-border);
+  border-radius: var(--radius-md);
+  position: relative;
+}
+
+/* Banner slot (horizontal) */
+.ad-slot--banner .ad-slot__wrapper {
+  min-height: var(--ad-banner-height);
+  max-width: 728px;
+}
+
+/* Rectangle / Sidebar slot */
+.ad-slot--rectangle .ad-slot__wrapper {
+  min-height: var(--ad-rect-height);
+  max-width: 300px;
+}
+
+/* Responsive banner */
+.ad-slot--responsive .ad-slot__wrapper {
+  min-height: 100px;
+}
+
+/* Mock placeholder text for non-production */
+.ad-slot__placeholder {
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+  text-align: center;
+  padding: var(--space-4);
+  font-style: italic;
+}

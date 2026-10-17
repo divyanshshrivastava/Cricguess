@@ -1,0 +1,153 @@
+/* ============================================================
+   attempt-indicator.css — Sleek attempt tracker & guess history
+   ============================================================ */
+
+.attempts-container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  margin-bottom: var(--space-6);
+}
+
+.attempts-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: var(--space-2);
+}
+
+.attempt-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  background: var(--color-surface);
+  border: 1.5px solid var(--color-surface-border);
+  border-radius: var(--radius-md);
+  color: var(--color-text-muted);
+  transition: border-color var(--transition-fast), background-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.attempt-box--current {
+  border-color: var(--color-pitch);
+  box-shadow: 0 0 0 3px rgba(26, 86, 50, 0.15);
+}
+
+[data-theme="dark"] .attempt-box--current {
+  border-color: var(--color-pitch-light);
+  box-shadow: 0 0 0 3px rgba(45, 138, 86, 0.2);
+}
+
+.attempt-box--wrong {
+  background: rgba(181, 56, 58, 0.08);
+  border-color: var(--color-leather);
+  color: var(--color-leather);
+  animation: shake 300ms ease;
+}
+
+[data-theme="dark"] .attempt-box--wrong {
+  background: rgba(212, 88, 90, 0.12);
+  border-color: var(--color-leather-light);
+  color: var(--color-leather-light);
+}
+
+.attempt-box--correct {
+  background: rgba(26, 86, 50, 0.08);
+  border-color: var(--color-pitch);
+  color: var(--color-pitch);
+  animation: pop 300ms ease;
+}
+
+[data-theme="dark"] .attempt-box--correct {
+  background: rgba(45, 138, 86, 0.15);
+  border-color: var(--color-pitch-light);
+  color: var(--color-pitch-light);
+}
+
+/* Guess History List */
+.guess-history {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.guess-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-2) var(--space-4);
+  background: var(--color-surface);
+  border: 1px solid var(--color-surface-border);
+  border-radius: var(--radius-md);
+  font-size: var(--text-sm);
+  animation: slideDown var(--transition-fast);
+}
+
+.guess-item--wrong {
+  border-left: 3px solid var(--color-leather);
+}
+
+[data-theme="dark"] .guess-item--wrong {
+  border-left-color: var(--color-leather-light);
+}
+
+.guess-item--correct {
+  border-left: 3px solid var(--color-pitch);
+}
+
+[data-theme="dark"] .guess-item--correct {
+  border-left-color: var(--color-pitch-light);
+}
+
+.guess-item__player {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.guess-item__mark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border-radius: var(--radius-full);
+}
+
+.guess-item--wrong .guess-item__mark {
+  color: var(--color-leather);
+  background: rgba(181, 56, 58, 0.1);
+}
+
+[data-theme="dark"] .guess-item--wrong .guess-item__mark {
+  color: var(--color-leather-light);
+  background: rgba(212, 88, 90, 0.15);
+}
+
+.guess-item--correct .guess-item__mark {
+  color: var(--color-pitch);
+  background: rgba(26, 86, 50, 0.1);
+}
+
+[data-theme="dark"] .guess-item--correct .guess-item__mark {
+  color: var(--color-pitch-light);
+  background: rgba(45, 138, 86, 0.15);
+}
+
+.guess-item__name {
+  font-weight: var(--weight-medium);
+  color: var(--color-text);
+}
+
+.guess-item__tags {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.guess-item__tag {
+  font-size: var(--text-xs);
+  padding: 2px 6px;
+  background: var(--color-bg-alt);
+  color: var(--color-text-secondary);
+  border-radius: var(--radius-sm);
+}
