@@ -12,6 +12,11 @@ let adSenseScriptLoaded = false;
  * Load Google AdSense script once if configured and allowed.
  */
 function loadAdSenseScript() {
+  if (document.querySelector('script[src*="adsbygoogle.js"]')) {
+    adSenseScriptLoaded = true;
+    return;
+  }
+
   if (adSenseScriptLoaded || !ADSENSE.enabled || !ADSENSE.publisherId || ADSENSE.publisherId.includes('XXXX')) {
     return;
   }

@@ -32,8 +32,8 @@ export const SITE = {
 
 /** AdSense configuration */
 export const ADSENSE = {
-  publisherId: 'ca-pub-XXXXXXXXXXXXXXXX', // TODO: Replace with your ca-pub ID
-  enabled: false, // Set to true after AdSense approval
+  publisherId: 'ca-pub-2824402019208557',
+  enabled: true,
 };
 
 /**
