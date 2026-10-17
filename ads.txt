@@ -1,0 +1,3 @@
+# CricGuess ads.txt
+# Replace pub-XXXXXXXXXXXXXXXX with your actual Google AdSense publisher ID upon approval
+google.com, pub-XXXXXXXXXXXXXXXX, DIRECT, f08c47fec0942fa0
